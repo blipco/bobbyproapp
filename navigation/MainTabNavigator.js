@@ -4,8 +4,8 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import ResumeScreen from '../screens/ResumeScreen';
+import ProjectsScreen from '../screens/ProjectsScreen';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -35,42 +35,42 @@ HomeStack.navigationOptions = {
 
 HomeStack.path = '';
 
-const LinksStack = createStackNavigator(
+const ResumeStack = createStackNavigator(
   {
-    Links: LinksScreen,
+    Resume: ResumeScreen,
   },
   config
 );
 
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
+ResumeStack.navigationOptions = {
+  tabBarLabel: 'Resume',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
   ),
 };
 
-LinksStack.path = '';
+ResumeStack.path = '';
 
-const SettingsStack = createStackNavigator(
+const ProjectsStack = createStackNavigator(
   {
-    Settings: SettingsScreen,
+    Projects: ProjectsScreen,
   },
   config
 );
 
-SettingsStack.navigationOptions = {
-  tabBarLabel: 'Settings',
+ProjectsStack.navigationOptions = {
+  tabBarLabel: 'Projects',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
   ),
 };
 
-SettingsStack.path = '';
+ProjectsStack.path = '';
 
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
-  LinksStack,
-  SettingsStack,
+  ResumeStack,
+  ProjectsStack,
 });
 
 tabNavigator.path = '';
